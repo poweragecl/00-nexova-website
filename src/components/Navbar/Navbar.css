@@ -1,0 +1,129 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background-color: var(--color-bg-primary);
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.navbar__container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+  height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar__logo {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 800;
+  color: var(--color-text-primary);
+  letter-spacing: -0.5px;
+}
+
+.navbar__logo span {
+  color: var(--color-accent);
+}
+
+.navbar__nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+}
+
+.navbar__link {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  transition: color 0.2s;
+}
+
+.navbar__link:hover,
+.navbar__link--active {
+  color: var(--color-text-primary);
+}
+
+.navbar__link--active {
+  font-weight: 500;
+}
+
+.navbar__cta {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-bg-primary);
+  background-color: var(--color-accent);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-md);
+  transition: background-color 0.2s;
+}
+
+.navbar__cta:hover {
+  background-color: var(--color-accent-hover);
+}
+
+.navbar__hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--space-2);
+}
+
+.navbar__hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background-color: var(--color-text-primary);
+  border-radius: var(--radius-full);
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.navbar__hamburger--open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.navbar__hamburger--open span:nth-child(2) {
+  opacity: 0;
+}
+.navbar__hamburger--open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+@media (max-width: 768px) {
+  .navbar__hamburger {
+    display: flex;
+  }
+
+  .navbar__nav {
+    display: none;
+    position: absolute;
+    top: 68px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    background-color: var(--color-bg-primary);
+    border-bottom: 1px solid var(--color-border-subtle);
+    padding: var(--space-4) var(--space-6);
+  }
+
+  .navbar__nav--open {
+    display: flex;
+  }
+
+  .navbar__link {
+    padding: var(--space-3) 0;
+    width: 100%;
+    border-bottom: 1px solid var(--color-border-subtle);
+  }
+
+  .navbar__cta {
+    margin-top: var(--space-4);
+  }
+}
